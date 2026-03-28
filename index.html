@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculadora de idade: anos, meses, dias e aniversário</title>
     <link
-      rel="shortcut icon"
-      type="imagex/png"
+      rel="icon"
+      type="image/png"
       href="./assets/images/calculator.png"
     />
     <link rel="stylesheet" href="style.css" />
+    <script src="calculator.js" defer></script>
+    <script src="index.js" defer></script>
   </head>
-  <body onload="init()">
+  <body>
     <div class="body-container">
       <section class="calculate-age">
         <header>
@@ -23,37 +25,32 @@
           <div class="age-info-container">
             <form class="form-input-container">
               <div class="input-container">
-                <label>Dia</label>
+                <label for="day">Dia</label>
                 <select
-                  onchange="getSelectedValues(event)"
                   class="input-form"
-                  type="number"
                   name="day"
                   id="day"
                 ></select>
               </div>
 
               <div class="input-container">
-                <label>Mês</label>
+                <label for="month">Mês</label>
                 <select
-                  onchange="changeDays()"
                   class="input-form"
-                  type="text"
                   name="month"
                   id="month"
                 ></select>
               </div>
 
               <div class="input-container">
-                <label>Ano</label>
+                <label for="year">Ano</label>
                 <div class="error">
                   <input
-                    placeholder="Exemplo: 2024"
-                    onkeyup="changeDays()"
+                    placeholder="Exemplo: 2000"
                     class="input-form"
-                    pattern="/^-?\d+\.?\d*$/"
-                    onKeyPress="if(this.value.length == 4) return false;"
-                    type="number"
+                    inputmode="numeric"
+                    maxlength="4"
+                    type="text"
                     name="year"
                     id="year"
                   />
@@ -67,30 +64,29 @@
 
           <div class="age-result-container">
             <div class="result-container">
-              <section class="result">
+              <div class="result">
                 <label>Idade</label>
-                <span id="yaear-value">0 Anos</span>
-              </section>
-              <section class="result">
+                <span id="year-value">0 Anos</span>
+              </div>
+              <div class="result">
                 <label>Mês</label>
                 <span id="month-value">0 Meses</span>
-              </section>
-              <section class="result">
+              </div>
+              <div class="result">
                 <label>Dia</label>
                 <span id="day-value">0 Dias</span>
-              </section>
-              <section class="result">
+              </div>
+              <div class="result">
                 <label>Aniversário</label>
-                <span id="birthDay-value">0 Dias</span>
-              </section>
+                <span id="birthday-value">0 Dias</span>
+              </div>
             </div>
           </div>
         </section>
 
-        <button type="submit" onclick="ageResult()">Calcular</button>
+        <button type="button" id="btn-calculate">Calcular</button>
       </section>
     </div>
 
-    <script src="index.js"></script>
   </body>
 </html>
