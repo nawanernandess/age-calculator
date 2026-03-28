@@ -1,4 +1,3 @@
 * text=auto
 
 *.md linguist-documentation=true
-*.js linguist-detectable=true
